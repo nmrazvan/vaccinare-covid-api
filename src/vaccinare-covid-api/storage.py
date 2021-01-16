@@ -34,7 +34,7 @@ class GoogleDriveUploader:
 
     def upload(self, local_file_path, remote_file_name):
         results = self.service.files().list(pageSize=10, fields="nextPageToken, files(id, name)").execute()
-        items = results._get("files", [])
+        items = results.get("files", [])
 
         file_id = None
         for item in items:
@@ -56,7 +56,7 @@ class GoogleDriveUploader:
                                         media_body=media,
                                         fields="id").execute()
         else:
-            file = self.service.files()._get(fileId=file_id).execute()
+            file = self.service.files().get(fileId=file_id).execute()
             media_body = MediaFileUpload(local_file_path, mimetype=file["mimeType"], resumable=True)
             self.service.files().update(
                 fileId=file_id,
