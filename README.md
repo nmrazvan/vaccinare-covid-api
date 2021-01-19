@@ -8,9 +8,9 @@ You can see it here:
 - http://bit.ly/centre-vaccinare (HTML)
 - http://bit.ly/centre-vaccinare-csv (CSV)
 - http://bit.ly/centre-vaccinare-xlsx (XLSX)
-- http://bit.ly/centre-vaccinare-pe-zile (HTML, grouped by centre and date)
-- http://bit.ly/centre-vaccinare-pe-zile-csv (CSV, grouped by centre and date)
-- http://bit.ly/centre-vaccinare-pe-zile-xls (XLS, grouped by centre and date)
+- http://bit.ly/centre-vaccinare-pe-zi (HTML, grouped by centre and date)
+- http://bit.ly/centre-vaccinare-pe-zi-csv (CSV, grouped by centre and date)
+- http://bit.ly/centre-vaccinare-pe-zi-xlsx (XLS, grouped by centre and date)
 
 Please note that this is an **UNOFFICIAL** repository, so I cannot guarantee the accuracy of the data provided. The
 sole purpose of this project is to provide easier access to the list of all medical units and available slots for
