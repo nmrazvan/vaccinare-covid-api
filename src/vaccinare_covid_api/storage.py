@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-
+import logging
 import pickle
 import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.http import MediaFileUpload
+
+# https://github.com/googleapis/google-api-python-client/issues/299
+logging.getLogger('googleapiclient.discovery_cache').setLevel(logging.ERROR)
 
 SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 

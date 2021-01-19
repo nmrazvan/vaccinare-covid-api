@@ -8,6 +8,9 @@ You can see it here:
 - http://bit.ly/centre-vaccinare (HTML)
 - http://bit.ly/centre-vaccinare-csv (CSV)
 - http://bit.ly/centre-vaccinare-xlsx (XLSX)
+- http://bit.ly/centre-vaccinare-pe-zile (HTML, grouped by centre and date)
+- http://bit.ly/centre-vaccinare-pe-zile-csv (CSV, grouped by centre and date)
+- http://bit.ly/centre-vaccinare-pe-zile-xls (XLS, grouped by centre and date)
 
 Please note that this is an **UNOFFICIAL** repository, so I cannot guarantee the accuracy of the data provided. The
 sole purpose of this project is to provide easier access to the list of all medical units and available slots for
@@ -36,13 +39,12 @@ Feel free to fork and improve this.
 
 3. Execute the script:
     ```bash
-    export PYTHONPATH=$PYTHONPATH:src/
-    python3 -m vaccinare-covid-api get-available-slots
+    ./vca get-available-slots
     ```
 
 For help and usage:
 ```bash
-python3 -m vaccinare-covid-api --help
+./vca --help
 ```
 
 ## Sample output
