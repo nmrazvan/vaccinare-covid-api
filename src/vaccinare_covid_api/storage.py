@@ -35,7 +35,7 @@ class GoogleDriveUploader:
                 pickle.dump(creds, token)
         self.service = build("drive", "v3", credentials=creds)
 
-    def upload(self, local_file_path, remote_file_name):
+    def upload(self, local_file_path, remote_file_name, src_mimetype=None, dest_mimetype=None):
         results = self.service.files().list(pageSize=10, fields="nextPageToken, files(id, name)").execute()
         items = results.get("files", [])
 
@@ -48,11 +48,11 @@ class GoogleDriveUploader:
         if not file_id:
             file_metadata = {
                 "name": remote_file_name,
-                "mimeType": "application/vnd.google-apps.spreadsheet"
+                "mimeType": dest_mimetype
             }
 
             media = MediaFileUpload(local_file_path,
-                                    mimetype="text/csv",
+                                    mimetype=src_mimetype,
                                     resumable=True)
 
             self.service.files().create(body=file_metadata,

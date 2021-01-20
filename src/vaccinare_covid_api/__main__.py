@@ -59,8 +59,16 @@ def get_available_slots(client, args):
         file.close()
 
     if args.upload_to_gdrive:
+        src_mimetype = None
+        dest_mimetype = None
+
+        if args.format[0:3] == "csv":
+            src_mimetype = "text/csv"
+            dest_mimetype = "application/vnd.google-apps.spreadsheet"
+
         gdrive_uploader = GoogleDriveUploader()
-        gdrive_uploader.upload(args.file, args.gdrive_document_title)
+        gdrive_uploader.upload(args.file, args.gdrive_document_title, src_mimetype=src_mimetype,
+                               dest_mimetype=dest_mimetype)
 
 
 def main():
