@@ -127,7 +127,7 @@ def main():
     gas_parser = subparsers.add_parser("get-available-slots")
     gas_parser.add_argument("--format", default="csv", choices=["csv", "csv_by_centre", "csv_by_date", "json"],
                             help="Output format")
-    gas_parser.add_argument("--months", default=2, help="Number of months to be checked")
+    gas_parser.add_argument("--months", default=2, type=int, help="Number of months to be checked")
     gas_parser.add_argument("--file", help="Path to the output file")
     gas_parser.add_argument("--upload-to-gdrive", help="Upload to Google Drive", action="store_true", default=False)
     gas_parser.add_argument("--gdrive-document-title", default="Programare vaccinare Covid - Locuri libere")
