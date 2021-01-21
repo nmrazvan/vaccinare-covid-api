@@ -1,5 +1,5 @@
 # UPDATE
-As of 2020-01-20, this script no longer works as the administrators of `programare.vaccinare-covid.gov.ro` implemented a
+As of 2021-01-20, this script no longer works as the administrators of `programare.vaccinare-covid.gov.ro` implemented a
 captcha system for the `/scheduling/api/time_slots/month_available_places` endpoint.
 
 # About
