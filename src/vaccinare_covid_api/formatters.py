@@ -42,10 +42,7 @@ class CsvFormatter:
 
         return record
 
-    def write(self, centre, slot):
-        record = {"centre": centre,
-                  "slot": slot}
-
+    def write(self, record):
         row = []
         row_identifier = []
         for key in self.header.keys():
@@ -88,12 +85,12 @@ class JsonFormatter:
     def start(self):
         self.file.write("[")
 
-    def write(self, centre, slot):
+    def write(self, record):
         if self.had_first_record:
             self.file.write(",")
         else:
             self.had_first_record = True
-        self.file.write(json.dumps({"centre": centre, "slot": slot}, default=str))
+        self.file.write(json.dumps(record, default=str))
 
     def end(self):
         self.file.write("]")

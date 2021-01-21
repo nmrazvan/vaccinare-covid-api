@@ -126,7 +126,7 @@ class HttpSession:
                 else:
                     response_body = self._get_cache(method, path, data, self.fallback_cache_lifetime)
                     if response_body is None:
-                        raise Exception(f"{method} {path} failed after {retry_attempt} retries", e)
+                        raise Exception(f"{method} {path} {data} failed after {retry_attempt} retries", e)
                     return json.loads(response_body)
 
     def get(self, path):
@@ -171,7 +171,7 @@ class VaccinareCovidApi:
             "currentDate": current_date,
             "forBooster": False})
 
-    def get_available_slots(self, centre_id, months_to_check=2):
+    def get_available_slots(self, centre_id, months_to_check):
         # Use a constant value for the time so that the request can be cached
         now = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
@@ -189,7 +189,7 @@ class VaccinareCovidApi:
                             slot["endTime"] = datetime.strptime(slot["endTime"], DATE_FORMAT)
                             yield slot
 
-    def get_available_slots_for_all_centres(self, months_to_check=2):
+    def get_available_slots_for_all_centres(self, months_to_check):
         for centre in self.get_centres():
             for slot in self.get_available_slots(centre["id"], months_to_check):
                 yield centre, slot
